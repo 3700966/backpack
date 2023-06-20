@@ -1,8 +1,10 @@
 #include "../include/FileReader.h"
 
-std::list<ItemPtr> FileReader::readFile()
+std::vector<std::vector<int>> FileReader::readFile()
 {
-    std::list<ItemPtr> items;
+    std::vector<std::vector<int>> items;
+    std::vector<int> values;
+    std::vector<int> volumes;
 
     std::ifstream itemsFile; 
     itemsFile.open(_filename);
@@ -22,8 +24,12 @@ std::list<ItemPtr> FileReader::readFile()
     std::string itemValue, itemVolume;
 
     while ( std::getline( valueStream, itemValue, ' ' ) &&  std::getline( volumeStream, itemVolume, ' ' ) ) {
-        items.push_back(std::make_shared<Item>( stoi(itemValue), stoi(itemVolume)));
+        values.push_back(stoi(itemValue));
+        volumes.push_back(stoi(itemVolume));
+        
     }
     
+    items.push_back(values);
+    items.push_back(volumes);
     return items;
 }

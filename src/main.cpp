@@ -5,9 +5,13 @@
 int main()
 {
     FileReader fileReader("resources/items.txt");
-    std::list<ItemPtr> items = fileReader.readFile();  
-    BackpackSolver backpackSolver(items);
-    backpackSolver.display();
+    
+    std::vector<std::vector<int>> items = fileReader.readFile();  
+    // items contains the list of values, then the list of volumes
 
+    BackpackSolver backpackSolver(15, items[0], items[1]);
+    backpackSolver.display();
+    backpackSolver.solve();
+    
     return 0;
 }

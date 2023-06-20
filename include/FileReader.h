@@ -4,9 +4,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
-#include <list>
-
-#include "Item.h"
+#include <vector>
 
 class FileReader
 {
@@ -17,5 +15,5 @@ class FileReader
     public:
 
         FileReader(std::string filename): _filename(filename){};
-        std::list<ItemPtr> readFile();
+        std::vector<std::vector<int>> readFile();
 };

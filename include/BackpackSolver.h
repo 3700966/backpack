@@ -1,21 +1,22 @@
 #pragma once
 
-#include <list>
+#include <vector>
 #include <iostream>
 
-#include "Item.h"
 
 
 class BackpackSolver
 {
 
     private:
+        int _totalVolume;
 
-        std::list<ItemPtr> _items;
+        std::vector<int> _values;
+        std::vector<int> _volumes;
 
     public:
 
-        BackpackSolver(std::list<ItemPtr> items): _items(std::move(items)){};
-
+        BackpackSolver(int totalVolume, std::vector<int> values, std::vector<int> volumes): _totalVolume(totalVolume), _values(std::move(values)), _volumes(std::move(volumes)){};
+        void solve();
         void display();
 };
