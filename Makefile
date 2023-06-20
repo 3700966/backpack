@@ -1,6 +1,7 @@
 CXX ?= g++
 CXXFLAGS = -g -Wall
 RM := rm -rf
+
 # path #
 SRC_PATH = src
 INCLUDE_PATH = include
@@ -19,8 +20,6 @@ all : $(BIN_PATH)/backpack
 $(BIN_PATH)/backpack: $(OBJ)
 	$(CXX) $(CXXFLAGS) $(INC) -o $@ $^ 
 	
-##// -lmingw32 -lws2_32
-
 obj/%.o : src/%.cpp
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 

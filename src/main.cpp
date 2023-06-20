@@ -1,7 +1,13 @@
-#include <iostream>
 
-int main(int args, char** argv)
+#include "../include/FileReader.h"
+#include "../include/BackpackSolver.h"
+
+int main()
 {
-    std::cout << "hello world !" << std::endl;
+    FileReader fileReader("resources/items.txt");
+    std::list<ItemPtr> items = fileReader.readFile();  
+    BackpackSolver backpackSolver(items);
+    backpackSolver.display();
+
     return 0;
 }
