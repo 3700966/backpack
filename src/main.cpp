@@ -9,7 +9,7 @@ int main()
     std::vector<std::vector<int>> items = fileReader.readFile();  
     // items contains the list of values, then the list of volumes
 
-    BackpackSolver backpackSolver(15, items[0], items[1]);
+    BackpackSolver backpackSolver(fileReader.getTotalVolume(), items[0], items[1]);
     backpackSolver.display();
     backpackSolver.solve();
     

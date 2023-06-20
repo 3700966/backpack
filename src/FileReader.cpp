@@ -9,15 +9,18 @@ std::vector<std::vector<int>> FileReader::readFile()
     std::ifstream itemsFile; 
     itemsFile.open(_filename);
 
+    std::string totalVolume;
     std::string value;
     std::string volume;
 
     if ( itemsFile.is_open() ) 
     {
+        std::getline(itemsFile, totalVolume);
         std::getline (itemsFile, value);
         std::getline (itemsFile, volume);  
     }
-
+    _totalVolume = stoi(totalVolume);
+    
     std::istringstream valueStream(value);
     std::istringstream volumeStream(volume);
     
