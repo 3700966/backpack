@@ -1,6 +1,5 @@
 CXX ?= g++
 CXXFLAGS = -g -Wall
-RM := rm -rf
 
 # path #
 SRC_PATH = src
