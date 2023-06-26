@@ -8,9 +8,9 @@ BUILD_PATH = obj
 BIN_PATH = bin
 
 # sources #
-SRC := $(wildcard src/*.cpp)
-OBJ := $(subst src, obj, $(SRC:.cpp=.o))
-
+SRC := $(wildcard $(SRC_PATH)/*.cpp)
+OBJ := $(subst $(SRC_PATH), $(BUILD_PATH), $(SRC:.cpp=.o))
+INC := -I $(INCLUDE_PATH)
 
 
 all : $(BIN_PATH)/backpack
@@ -19,7 +19,7 @@ all : $(BIN_PATH)/backpack
 $(BIN_PATH)/backpack: $(OBJ)
 	$(CXX) $(CXXFLAGS) $(INC) -o $@ $^ 
 	
-obj/%.o : src/%.cpp
+$(BUILD_PATH)/%.o : $(SRC_PATH)/%.cpp
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
 

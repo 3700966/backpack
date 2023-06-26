@@ -4,7 +4,7 @@ int max(int a, int b) { return (a > b) ? a : b; }
 
 void BackpackSolver::display()
 {
-    for(int i = 0; i < _values.size(); i++ )
+    for(size_t i = 0; i < _values.size(); i++ )
     {
         std::cout << _values[i] << " , " << _volumes[i] << std::endl;
     }
